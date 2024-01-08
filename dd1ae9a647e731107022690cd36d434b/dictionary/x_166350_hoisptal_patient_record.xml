@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c14ba92a47e731107022690cd36d438b" label="Patient Record" max_length="40" name="x_166350_hoisptal_patient_record" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" default="requested" label="Approval" max_length="40" name="approval" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Requested" sequence="0" value="requested"/>
+                <element inactive_on_update="false" label="Approved" sequence="1" value="approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="2" value="rejected"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Closed By" max_length="32" name="closed_by" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Date of Join" max_length="40" name="date_of_join" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="1" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="Complete" sequence="2" value="3"/>
+            </choice>
+        </element>
+        <element attributes="encode_utf8=false" label="Updated By" max_length="32" name="updated_by" read_only="true" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Created By" max_length="32" name="u_reference_1" read_only="true" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="closed_by"/>
+        </index>
+        <index name="index2">
+            <element name="u_reference_1"/>
+        </index>
+        <index name="index3">
+            <element name="updated_by"/>
+        </index>
+    </element>
+</database>
